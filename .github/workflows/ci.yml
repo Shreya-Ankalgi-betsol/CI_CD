@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job-a:
+    name: Run Python app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run app.py
+        run: python app.py
+
+  job-b:
+    name: Basic Linux commands
+    runs-on: ubuntu-latest
+    steps:
+      - name: Commands
+        run: |
+          echo "Hello from job B"
+          mkdir -p demo_dir
+          cd demo_dir
+          echo "Inside demo_dir"
+          pwd
